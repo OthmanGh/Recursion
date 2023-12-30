@@ -3,18 +3,14 @@
 
 str = 'KayaK'
 
-def is_palindrome(str, s, e):
-    if s < 0 or e > len(str) or s > e:
-        return False
+def is_palindrome(str):
+    if len(str) == 1 or len(str) == 0:
+        return True
 
-    if s == e:
-        return True 
-    
-    if not str[s] == str[e]:
-        return False
+    if str[0] == str[-1]:
+        return is_palindrome(str[1:len(str) - 1])
 
-    
-    return is_palindrome(str, s + 1, e - 1)
+    return False
 
 
-print(is_palindrome(str, 0, len(str) - 1))
+print(is_palindrome(str))
